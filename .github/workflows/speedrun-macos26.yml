@@ -1,0 +1,61 @@
+name: speedrun-macos26
+on:
+  workflow_dispatch:
+jobs:
+  setup-go-faster-preinstalled:
+    name: setup-go-faster (preinstalled 1.25.10)
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-26, macos-26-intel]
+        run: [1, 2, 3]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: WillAbides/setup-go-faster@v1
+        with:
+          go-version: 1.25.10
+      - run: go version
+
+  setup-go-preinstalled:
+    name: setup-go (preinstalled 1.25.10)
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-26, macos-26-intel]
+        run: [1, 2, 3]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/setup-go@v6
+        with:
+          go-version: 1.25.10
+          cache: false
+      - run: go version
+
+  setup-go-faster-download:
+    name: setup-go-faster (download 1.26.3)
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-26, macos-26-intel]
+        run: [1, 2, 3]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: WillAbides/setup-go-faster@v1
+        with:
+          go-version: 1.26.3
+      - run: go version
+
+  setup-go-download:
+    name: setup-go (download 1.26.3)
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-26, macos-26-intel]
+        run: [1, 2, 3]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/setup-go@v6
+        with:
+          go-version: 1.26.3
+          cache: false
+      - run: go version
