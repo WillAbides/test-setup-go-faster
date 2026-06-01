@@ -9,10 +9,9 @@ jobs:
       fail-fast: false
       matrix:
         os:
-          - ubuntu-22.04
-          - ubuntu-20.04
-          - windows-2022
-          - macos-11
+          - ubuntu-24.04
+          - windows-2025
+          - macos-26
     runs-on: ${{ matrix.os }}
     defaults:
       run:
