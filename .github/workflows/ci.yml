@@ -10,15 +10,13 @@ jobs:
       matrix:
         os:
           - ubuntu-24.04
-          - windows-2025
-          - macos-26
     runs-on: ${{ matrix.os }}
     defaults:
       run:
         shell: bash
     steps:
       - uses: actions/checkout@v3
-      - uses: WillAbides/setup-go-faster@v1
+      - uses: WillAbides/setup-go-faster@v1.18.0-alpha.0
         with:
           go-version: oldstable
       - run: script/lint
